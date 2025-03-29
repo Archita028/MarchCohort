@@ -20,22 +20,36 @@ function validateForm() {
 }
 
 // Function to handle login button click
-function handleLogin() {
+function handleLogin(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
     if (validateForm()) {
-        // Proceed with login (e.g., send data to server)
-        alert('Login successful!');
+        const username = document.getElementById('user').value;
+        const password = document.getElementById('pass').value;
+
+        // Simulate login validation (replace with actual validation logic)
+        if (username === 'admin@example.com' && password === 'password123') {
+            // Redirect to the dashboard page on successful login
+            window.location.href = 'dashboard.html';
+        } else {
+            // Display an error message for invalid credentials
+            alert('Invalid username or password. Please try again.');
+        }
     }
-}
-
-// Function to open additional information
-function openLoginInfo() {
-    document.querySelector('.box-info').style.display = 'block';
-}
-
-// Function to close additional information
-function closeLoginInfo() {
-    document.querySelector('.box-info').style.display = 'none';
 }
 
 // Event listener for the login button
 document.getElementById('do_login').addEventListener('click', handleLogin);
+
+// Placeholder functions for other buttons
+function forgotPassword() {
+    alert('Forgot Password functionality is not implemented yet.');
+}
+
+function contactSupport() {
+    alert('Contact Support functionality is not implemented yet.');
+}
+
+function createAccount() {
+    alert('Create Account functionality is not implemented yet.');
+}
